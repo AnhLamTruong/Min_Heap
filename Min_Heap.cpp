@@ -13,6 +13,7 @@ Min_Heap::Min_Heap(int cap) {
 }
 
 void Min_Heap::Min_Heapify(int index) {
+    // REHEAP DOWN
     int l=left(index);
     int r=right(index);
     int smallest= index;
@@ -68,14 +69,23 @@ void Min_Heap::insert_value(int val) {
     int i = heap_size - 1;
     heap_arr[i] = val;
 
-    //Fix the min heap right away when the rules is violated
+    // Fix the min heap right away when the rules is violated
     // Parents greater than children
-    //Must smaller
+    // Must smaller
+    //REHEAP UP
     while (i != 0 && heap_arr[parent(i)] > heap_arr[i]){
         swap(&heap_arr[i],&heap_arr[parent(i)]);
         i=parent(i);
     }
 
+}
+
+void Min_Heap::print_Array() {
+    cout<<"\n ARRAY: ";
+    for(int i=0; i<6;i++){
+        cout<<heap_arr[i]<<" ";
+    }
+    cout<<'\n';
 }
 
 void Min_Heap::swap(int *x, int *y) {

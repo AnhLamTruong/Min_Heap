@@ -20,7 +20,7 @@ public:
     //To Heapify a subtree with the root a index given
     //To access reHeapUp or reHeapDown
     void Min_Heapify(int index);
-
+    void print_Array();
     // To get the parent or left or right index
     int parent(int index){return (index-1)/2;};
     int left(int index){return (index*2+1);};
